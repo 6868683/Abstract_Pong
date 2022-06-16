@@ -1,7 +1,7 @@
 class Circle extends Shape {
   Circle(float x, float y, color colour, float diameter) {
     super(x, y, 0, 0, colour, 0, 0, 0, diameter);
-    this.xSpeed = (int(random(-2, 2))*((1/diameter)*10000));
+    this.xSpeed = (int(random(-2, 2))*500);
   }//endconstructor
   void draw() {
     stroke(colour);
@@ -13,10 +13,10 @@ class Circle extends Shape {
     x += xSpeed*time.deltaTime;
     y += ySpeed*time.deltaTime;
     if (xSpeed == 0) {
-      xSpeed = (int(random(-2, 2))*((1/diameter)*10000));
+      xSpeed = (int(random(-2, 2))*500);
     }
     if (ySpeed < 0.5 && ySpeed>-0.5) {
-      ySpeed = 0.5;
+      ySpeed = height;
     }
   }//endmove
   void bounce() {
@@ -49,7 +49,7 @@ class Circle extends Shape {
     if ((x+(diameter/2) >= width) ||  (x-(diameter/2) <= 0) ) {
       x = width/2;
       y = height/2;
-      xSpeed = (int(random(-2, 2))*((1/diameter)*10000));
+      xSpeed = (int(random(-2, 2))*500);
     }
   }
 }
